@@ -1,7 +1,7 @@
 'use strict'
 
 const typeforce = require('typeforce')
-const dnode = require('dnode')
+const upnode = require('upnode')
 const Q = require('q')
 const extend = require('xtend/mutable')
 const manifest = require('./manifest')
@@ -29,7 +29,7 @@ module.exports = function (opts) {
     })
   })
 
-  return dnode(function (client, conn) {
+  return upnode(function (client, conn) {
     extend(this, methods)
     this.subscribe = function (emit) {
       subs[conn.id] = emit

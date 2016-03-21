@@ -27,30 +27,29 @@ test('rpc', function (t) {
   })
 
   const port = 32332
-  let server = createServer({
-    tim: tim,
+  let server
+  const client = createClient({
     port: port
   })
 
-  createClient({
-    port: port
-  }, function (err, client, conn) {
-    if (err) throw err
+  client.identityPublishStatus()
+    .done(function (status) {
+      client.close()
+      server.close()
+      tim.destroy()
+      t.equal(status.current, false)
+      t.equal(status.queued, false)
+      t.equal(status.ever, false)
+      t.end()
+    })
 
-    client.identityPublishStatus()
-      .done(function (status) {
-        conn.end()
-        server.close()
-        tim.destroy()
-        t.equal(status.current, false)
-        t.equal(status.queued, false)
-        t.equal(status.ever, false)
-        t.end()
-      })
-  })
-  .on('error', function (err) {
-    throw err
-  })
+  setTimeout(function () {
+    // test connection buffering
+    server = createServer({
+      tim: tim,
+      port: port
+    })
+  }, 1000)
 })
 
 function walletFor (keys, blockchain, purpose) {

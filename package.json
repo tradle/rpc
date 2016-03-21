@@ -9,9 +9,9 @@
   "author": "Mark Vayngrib <mark@tradle.io> (http://github.com/mvayngrib)",
   "license": "MIT",
   "dependencies": {
-    "dnode": "^1.2.2",
     "q": "^1.4.1",
     "typeforce": "^1.6.2",
+    "upnode": "mvayngrib/upnode#updatednode",
     "xtend": "^4.0.1"
   },
   "devDependencies": {
