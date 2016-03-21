@@ -1,0 +1,25 @@
+{
+  "name": "@tradle/rpc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "author": "Mark Vayngrib <mark@tradle.io> (http://github.com/mvayngrib)",
+  "license": "MIT",
+  "dependencies": {
+    "dnode": "^1.2.2",
+    "q": "^1.4.1",
+    "typeforce": "^1.6.2",
+    "xtend": "^4.0.1"
+  },
+  "devDependencies": {
+    "@tradle/identity": "^1.2.3",
+    "@tradle/test-helpers": "^1.2.0",
+    "array-find": "^1.0.0",
+    "memdown": "^1.1.2",
+    "tape": "^4.5.1",
+    "tim": "^6.1.1"
+  }
+}
